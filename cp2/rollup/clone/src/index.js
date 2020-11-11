@@ -1,23 +1,23 @@
-const type = require('./type.js');
+import { type } from "./type.js";
 
 export function clone(source) {
     const t = type(source);
-    if (t !== 'object' && t !== 'array') {
+    if (t !== "object" && t !== "array") {
         return source;
     }
 
-    let target ;
+    let target;
 
-    if (t === 'object') {
+    if (t === "object") {
         target = {};
-        for(let i in source) {
+        for (let i in source) {
             if (source.hasOwnProperty(i)) {
                 target[i] = clone(source[i]); // 注意这里
             }
         }
     } else {
         target = [];
-        for(let i = 0; i < source.length; i++) {
+        for (let i = 0; i < source.length; i++) {
             target[i] = clone(source[i]); // 注意这里
         }
     }

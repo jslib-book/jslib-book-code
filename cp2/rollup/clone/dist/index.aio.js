@@ -9,31 +9,36 @@
     (factory((global.clone = {})));
 }(this, (function (exports) { 'use strict';
 
-    const type = require('./type.js');
+    function type(data) {
+      return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
+    }
 
     function clone(source) {
-        const t = type(source);
-        if (t !== 'object' && t !== 'array') {
-            return source;
+      var t = type(source);
+
+      if (t !== "object" && t !== "array") {
+        return source;
+      }
+
+      var target;
+
+      if (t === "object") {
+        target = {};
+
+        for (var i in source) {
+          if (source.hasOwnProperty(i)) {
+            target[i] = clone(source[i]); // 注意这里
+          }
         }
+      } else {
+        target = [];
 
-        let target ;
-
-        if (t === 'object') {
-            target = {};
-            for(let i in source) {
-                if (source.hasOwnProperty(i)) {
-                    target[i] = clone(source[i]); // 注意这里
-                }
-            }
-        } else {
-            target = [];
-            for(let i = 0; i < source.length; i++) {
-                target[i] = clone(source[i]); // 注意这里
-            }
+        for (var _i = 0; _i < source.length; _i++) {
+          target[_i] = clone(source[_i]); // 注意这里
         }
+      }
 
-        return target;
+      return target;
     }
 
     exports.clone = clone;
