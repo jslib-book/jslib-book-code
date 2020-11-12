@@ -4,14 +4,19 @@
  */
 
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (factory((global.clone = {})));
-}(this, (function (exports) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@babel/runtime-corejs2/core-js/array/from')) :
+    typeof define === 'function' && define.amd ? define(['exports', '@babel/runtime-corejs2/core-js/array/from'], factory) :
+    (factory((global.clone = {}),global._Array$from));
+}(this, (function (exports,_Array$from) { 'use strict';
+
+    _Array$from = _Array$from && _Array$from.hasOwnProperty('default') ? _Array$from['default'] : _Array$from;
 
     function type(data) {
       return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
     }
+
+    _Array$from('abc'); // ['a', 'b', 'c']
+
 
     function clone(source) {
       var t = type(source);

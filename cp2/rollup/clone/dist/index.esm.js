@@ -3,9 +3,14 @@
  * Licensed under MIT
  */
 
+import _Array$from from '@babel/runtime-corejs2/core-js/array/from';
+
 function type(data) {
   return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
 }
+
+_Array$from('abc'); // ['a', 'b', 'c']
+
 
 function clone(source) {
   var t = type(source);

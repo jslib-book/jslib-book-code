@@ -31,6 +31,7 @@ function getCompiler(opt) {
             [
                 '@babel/plugin-transform-runtime',
                 {
+                    "corejs": 2,
                     'helpers': false,
                     'regenerator': false
                 }
