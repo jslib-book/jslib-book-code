@@ -1,5 +1,5 @@
 var expect = require("expect.js");
-var clone = require("../dist/index.js").clone;
+var clone = require("../src/index.js").clone;
 
 describe("function clone", function () {
     describe("param data", function () {
@@ -21,7 +21,7 @@ describe("function clone", function () {
         });
 
         it("边界值用例", function () {
-            expect(clone()).to.equal(undefined);
+            expect(clone(1)).to.equal(undefined);
 
             expect(clone(undefined)).to.equal(undefined);
 

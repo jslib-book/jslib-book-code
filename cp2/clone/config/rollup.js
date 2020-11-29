@@ -19,8 +19,8 @@ function getCompiler(opt) {
                 '@babel/preset-env',
                 {
                     'targets': {
-                        'browsers': 'last 2 versions, > 1%, ie >= 6, Android >= 4, iOS >= 6, and_uc > 9',
-                        'node': '0.10'
+                        'browsers': 'last 2 versions, > 1%, ie >= 8, Chrome >= 45, safari >= 10',
+                        'node': '0.12'
                     },
                     'modules': false,
                     'loose': false
