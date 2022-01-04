@@ -1,5 +1,5 @@
 var expect = require("expect.js");
-var type = require("../src/index.js").c;
+var type = require("../src/index.js").type;
 
 describe('c', function() {
     this.timeout(1000);
