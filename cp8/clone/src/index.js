@@ -1,4 +1,4 @@
-import { type } from '@jsmini/type';
+import { type } from '@jslib-book/type';
 
 // Object.create(null) 的对象，没有hasOwnProperty方法
 function hasOwnProp(obj, key) {
