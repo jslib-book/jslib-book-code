@@ -1,6 +1,11 @@
 import { type } from '@jslib-book/type'; // 使用我们前面写的类型库
 import { clone } from '@jslib-book/clone';
 
+// Object.create(null) 的对象，没有hasOwnProperty方法
+function hasOwnProp(obj, key) {
+    return Object.prototype.hasOwnProperty.call(obj, key);
+}
+
 export function extend(defaultOpt, customOpt) {
     defaultOpt = clone(defaultOpt); // 拷贝一份defaultOpt，隔离数据
     

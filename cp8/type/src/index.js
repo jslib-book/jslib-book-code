@@ -11,7 +11,7 @@ export function type(x) {
 
     const toString = Object.prototype.toString;
     const innerType = toString.call(x).slice(8, -1); 
-    const innerLowType =  cls.toLowerCase();
+    const innerLowType =  innerType.toLowerCase();
 
     // 区分 String() 和 new String()
     if (['String', 'Boolean', 'Number'].includes(innerType)) {
